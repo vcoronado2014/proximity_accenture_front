@@ -1,32 +1,85 @@
-<!-- <div class="row">
-    <h5>Usando each con Jquery</h5>
-    <p>Each itera sobre un objeto jquery y ejeccuta una función para cada elemento coincidente</p>
-    <ul>
-        <li>foo</li>
-        <li>bar</li>
-    </ul>
-</div> -->
-<div class="row">
-    <h5>Contenedores</h5>
-    <p>Los contenedores tag (ng-container) permite encapsular codigo html y mostrarlo o esconderlo mediante una directiva por ejemplo *ngIf</p>
-    <p>ngContainer NO crea un div por defecto</p>
-    <h5>Directivas</h5>
-    <p>Hay 2 tipos de directivas</p>
-    <h6>Estructurales *ngIf *ngFor</h6>
-    <p>Son aquellas que corresponden a elementos en el HTML que permiten añadir, manipular o eliminar elementos del DOM. Estos elementos, en forma de atributos, se aplican a elementos huéspedes. Al hacer esto, la directiva hace lo que debe hacer sobre el elemento huésped y sus elementos hijos. Estas directivas son fácilmente reconocibles debido a que están antecedidas por un asterisco (*) seguido del nombre de la directiva</p>
-    <h6>Directivas de atributos</h6>
-    <p>La directiva de atributo atributo cambia la apariencia o comportamiento de un elemento, componente u otra directiva</p>
-</div>
-<div class="row">
-    <h5>Creando un contenedor</h5>
-    <p>Este contenedor mostrará los nombres de todos los productos</p>
-    <ng-container>
-        <div *ngFor="let producto of productos">
-            {{producto.nombre}}
+<div class="container">
+    <h1>Listado de productos</h1>
+    <div class="row bg-secondary text-light" *ngFor="let producto of productos">
+        <div class="col-sm-4">Id: {{producto.id}}, {{producto.nombre}}</div>
+        <div class="col-sm-6">{{producto.descripcion}}</div>
+        <div class="col-sm-2">{{producto.precioUnitario}}</div>
+        <hr>
+    </div>
+    <h1>Tabla responsiva normal</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcón</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Código</th>
+                <th scope="col">Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let producto of productos">
+                <th scope="row">{{producto.id}}</th>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.descripcion}}</td>
+                <td>{{producto.precioUnitario}}</td>
+                <td>{{producto.codigo}}</td>
+                <td>{{producto.stock}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <h1>Tabla responsiva head dark</h1>
+      <div class="table-responsive">
+          <table class="table">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripcón</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Código</th>
+                  <th scope="col">Stock</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let producto of productos">
+                  <th scope="row">{{producto.id}}</th>
+                  <td>{{producto.nombre}}</td>
+                  <td>{{producto.descripcion}}</td>
+                  <td>{{producto.precioUnitario}}</td>
+                  <td>{{producto.codigo}}</td>
+                  <td>{{producto.stock}}</td>
+                </tr>
+              </tbody>
+            </table>
         </div>
-        <h6>Sólo categorias 2</h6>
-        <div *ngFor="let producto of productos">
-            <span *ngIf="producto.categoriaId == 2">{{producto.nombre}}</span>
-        </div>
-    </ng-container>
+        <h1>Tabla responsiva head dark striped</h1>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcón</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Stock</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let producto of productos">
+                    <th scope="row">{{producto.id}}</th>
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.descripcion}}</td>
+                    <td>{{producto.precioUnitario}}</td>
+                    <td>{{producto.codigo}}</td>
+                    <td>{{producto.stock}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+      
 </div>
